@@ -1,37 +1,7 @@
 import Image from "next/image";
-
-const projects = [
-  {
-    name: "Project 1 - DH 68",
-    image: "/images/projects/optimized/dh-68-living-room.jpg",
-    alt: "Living room with a curved tan sofa, staircase, and pale stone columns.",
-    format: "wide",
-  },
-  {
-    name: "Project 2 - Le Reve",
-    image: "/images/projects/optimized/le-reve.jpg",
-    alt: "Warm bedroom with a wood bedside table, sculptural lamp, and patterned linens.",
-    format: "portrait",
-  },
-  {
-    name: "Project 3 - Mansion 06",
-    image: "/images/projects/optimized/mansion-06.jpg",
-    alt: "Refined bedroom with illuminated shelving and pale textured wall panels.",
-    format: "portrait",
-  },
-  {
-    name: "Project 4 - Mansion 02",
-    image: "/images/projects/optimized/mansion-02.jpg",
-    alt: "Living room with a wood slat ceiling, sculptural furniture, and a garden view.",
-    format: "portrait",
-  },
-  {
-    name: "Project 5 - LV 38",
-    image: "/images/projects/optimized/lv-38.jpg",
-    alt: "Living room with an arched opening, marble table, and softly layered furnishings.",
-    format: "portrait",
-  },
-] as const;
+import Link from "next/link";
+import { projects } from "./project-data";
+import { SiteFooter } from "./site-footer";
 
 function Arrow() {
   return (
@@ -52,11 +22,14 @@ export function LandingSections() {
 
         <div className="project-index">
           {projects.map((project) => (
-            <article className={`project-index-entry project-index-entry--${project.format}`} key={project.name}>
-              <div className="project-index-media">
-                <Image src={project.image} alt={project.alt} fill sizes="(max-width: 700px) 100vw, 72vw" />
-              </div>
-              <h3>{project.name}</h3>
+            <article className="project-index-entry project-index-entry--portrait" key={project.slug}>
+              <Link className="project-index-media" href={`/projects/${project.slug}`}>
+                <Image src={project.cover.src} alt={project.cover.alt} fill sizes="(max-width: 700px) 100vw, 72vw" />
+              </Link>
+              <Link className="project-index-title" href={`/projects/${project.slug}`}>
+                <h3>{project.title}</h3>
+                <p>{project.descriptor}</p>
+              </Link>
             </article>
           ))}
         </div>
@@ -69,18 +42,15 @@ export function LandingSections() {
         </div>
       </section>
 
-      <section className="contact-section" id="contact" aria-labelledby="contact-title">
+      <section className="contact-section landing-contact-section" id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">Let&apos;s create your next space.</h2>
-        <a className="contact-link" href="https://www.whitelinen.ae/hire-us" target="_blank" rel="noreferrer">
-          Start a conversation
+        <a className="contact-link" href="/contact">
+          Contact us now
           <Arrow />
         </a>
       </section>
 
-      <footer className="site-footer">
-        <p>White Linen Interiors</p>
-        <a href="#top">Back to top</a>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

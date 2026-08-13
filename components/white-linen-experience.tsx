@@ -4,11 +4,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LandingSections } from "./landing-sections";
 import { projectImages } from "./project-images";
+import { SiteNavigation } from "./site-navigation";
+import { Wordmark } from "./wordmark";
 
 const TIMING = {
-  outlineDelay: 280,
-  outlineDuration: 1200,
-  outlineHold: 220,
+  dividerDelay: 700,
+  dividerDuration: 760,
+  dividerHold: 160,
   revealDuration: 1400,
   carouselInterval: 6200,
   slideDuration: 560,
@@ -29,54 +31,6 @@ function useReducedMotion() {
   }, []);
 
   return reduced;
-}
-
-function Logo({ compact = false }: { compact?: boolean }) {
-  return (
-    <div className={`wordmark${compact ? " wordmark--compact" : ""}`} aria-label="White Linen Interiors">
-      <span className="wordmark-main">White Linen</span>
-      <span className="wordmark-sub">Interiors</span>
-    </div>
-  );
-}
-
-function outlinePath(progress: number) {
-  const distance = Math.min(Math.max(progress, 0), 1) * 4;
-  const coordinate = (value: number) => Math.round(value * 1000) / 1000;
-
-  if (distance <= 1) return `M 1 1 H ${coordinate(1 + 98 * distance)}`;
-  if (distance <= 2) return `M 1 1 H 99 V ${coordinate(1 + 98 * (distance - 1))}`;
-  if (distance <= 3) return `M 1 1 H 99 V 99 H ${coordinate(99 - 98 * (distance - 2))}`;
-  return `M 1 1 H 99 V 99 H 1 V ${coordinate(99 - 98 * (distance - 3))}`;
-}
-
-function AnimatedOutline() {
-  const path = useRef<SVGPathElement>(null);
-
-  useEffect(() => {
-    let frame = 0;
-    let start: number | undefined;
-    const delay = window.setTimeout(() => {
-      const draw = (now: number) => {
-        if (start === undefined) start = now;
-        const progress = Math.min((now - start) / TIMING.outlineDuration, 1);
-        path.current?.setAttribute("d", outlinePath(progress));
-        if (progress < 1) frame = window.requestAnimationFrame(draw);
-      };
-      frame = window.requestAnimationFrame(draw);
-    }, TIMING.outlineDelay);
-
-    return () => {
-      window.clearTimeout(delay);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  return (
-    <svg className="opening-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path ref={path} d={outlinePath(0)} vectorEffect="non-scaling-stroke" />
-    </svg>
-  );
 }
 
 function LineArrow({ direction }: { direction: Direction }) {
@@ -182,6 +136,13 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
           sizes="100vw"
           style={{ objectPosition: projectImages[current].objectPosition }}
         />
+        <div className="hero-copy">
+          <h1>Atmosphere is everything.</h1>
+        </div>
+        <a className="hero-project-link" href="/recent-work">
+          Explore our work
+          <LineArrow direction="next" />
+        </a>
         <div className="carousel-controls" role="group" aria-label="Project image controls">
           <button type="button" className="line-control" onClick={() => move("previous")} aria-label="Previous project image">
             <LineArrow direction="previous" />
@@ -236,10 +197,10 @@ export function WhiteLinenExperience() {
         document.body.style.overflow = originalOverflow;
       }, TIMING.revealDuration);
     };
-    const outlineTimer = window.setTimeout(startReveal, TIMING.outlineDelay + TIMING.outlineDuration + TIMING.outlineHold);
+    const dividerTimer = window.setTimeout(startReveal, TIMING.dividerDelay + TIMING.dividerDuration + TIMING.dividerHold);
 
     return () => {
-      window.clearTimeout(outlineTimer);
+      window.clearTimeout(dividerTimer);
       if (imageWaitTimer) window.clearTimeout(imageWaitTimer);
       if (settleTimer) window.clearTimeout(settleTimer);
       document.body.style.overflow = originalOverflow;
@@ -274,17 +235,11 @@ export function WhiteLinenExperience() {
 
   return (
     <main className={`white-linen-experience stage-${stage}`}>
-      <header className={`final-navbar${heroIsReady ? " final-navbar--visible" : ""}${hasScrolled ? " final-navbar--scrolled" : ""}`} aria-hidden={!heroIsReady}>
-        <div className="final-navbar__surface" aria-hidden="true" />
-        <a className="navbar-link navbar-link--left" href="#about">About</a>
-        <a className="final-navbar__brand" href="#top" aria-label="White Linen Interiors home"><Logo compact /></a>
-        <a className="navbar-link navbar-link--right" href="#contact">Contact</a>
-      </header>
+      <SiteNavigation className={`final-navbar${heroIsReady ? " final-navbar--visible" : ""}${hasScrolled ? " final-navbar--scrolled" : ""}`} ariaHidden={!heroIsReady} />
       <div className="opening-canvas" aria-hidden={stage === "hero"}>
         <div className="opening-brand">
-          <Logo />
+          <Wordmark />
         </div>
-        <div className="opening-mark"><AnimatedOutline /></div>
       </div>
       <div className="hero-layer">
         <ProjectCarousel enabled={heroIsReady} reducedMotion={reducedMotion} />

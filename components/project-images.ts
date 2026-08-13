@@ -6,28 +6,23 @@ export type ProjectImage = {
 
 export const projectImages: ProjectImage[] = [
   {
-    src: "/images/projects/optimized/dh-68-living-room.jpg",
-    alt: "Living room with a curved tan sofa, staircase, and pale stone columns.",
+    src: "/images/hero/optimized/spa.jpg",
+    alt: "A calm spa room with sunken stone pools and illuminated shelves.",
     objectPosition: "center center",
   },
   {
-    src: "/images/projects/optimized/dh-68-bathroom.jpg",
-    alt: "Stone bathroom with a freestanding bathtub and a large frosted window.",
+    src: "/images/hero/optimized/gallery.jpg",
+    alt: "Warm dining space with a sculptural chandelier, art, and a pale stone staircase.",
     objectPosition: "center center",
   },
   {
-    src: "/images/projects/optimized/dh-68-pale-hall.jpg",
-    alt: "Bright hallway framed by pale stone, dark lattice panels, and sculptural vessels.",
+    src: "/images/hero/optimized/kitchen-living.jpg",
+    alt: "Open-plan living and kitchen space with a pale stone island and curved cream sofa.",
     objectPosition: "center center",
   },
   {
-    src: "/images/projects/optimized/dh-68-lounge.jpg",
-    alt: "Quiet lounge with a curved ivory chair, pale wood wall, and blue abstract artwork.",
-    objectPosition: "center center",
-  },
-  {
-    src: "/images/projects/optimized/dh-68-gallery.jpg",
-    alt: "Pale gallery-like corridor with tall stone columns and a glimpse into a light-filled sitting room.",
+    src: "/images/hero/optimized/lounge.jpg",
+    alt: "A warm, contemporary lounge with pale stone, sculptural seating, and soft wood details.",
     objectPosition: "center center",
   },
 ];

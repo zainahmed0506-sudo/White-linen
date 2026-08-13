@@ -15,6 +15,7 @@ opening-*.png
 logo/
 /public/images/brand/
 /public/images/projects/*.jpg
+/public/images/HERO imgs/
 
 # Local agent context
 PRODUCT.md
