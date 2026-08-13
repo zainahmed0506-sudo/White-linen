@@ -16,7 +16,7 @@ export function LandingSections() {
     <div className="site-content">
       <section className="projects-section" id="projects" aria-labelledby="projects-title">
         <div className="section-heading section-heading--projects">
-          <h2 id="projects-title">All projects</h2>
+          <h2 id="projects-title">Portfolio</h2>
           <p>Five spaces, each with a character of its own.</p>
         </div>
 
@@ -32,13 +32,6 @@ export function LandingSections() {
               </Link>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="about-section" id="about" aria-labelledby="about-title">
-        <div className="about-copy">
-          <h2 id="about-title">Made to feel lived in.</h2>
-          <p>White Linen Interiors creates spaces shaped by atmosphere, material, light, and the everyday rituals that make a home personal.</p>
         </div>
       </section>
 

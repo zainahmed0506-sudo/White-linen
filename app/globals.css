@@ -28,7 +28,9 @@ button { font: inherit; }
 .navbar-links--left { grid-column: 1; justify-self: start; }
 .navbar-links--right { grid-column: 3; justify-self: end; }
 .navbar-link { color: currentColor; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(11px, 0.75vw, 12px); font-weight: 400; letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
-.navbar-link:focus-visible, .final-navbar__brand:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
+.navbar-link:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
+.navbar-link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.final-navbar__brand:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
 
 .wordmark { display: flex; align-items: center; flex-direction: column; color: var(--ink); text-transform: uppercase; white-space: nowrap; }
 .final-navbar .wordmark { color: currentColor; }
@@ -89,20 +91,22 @@ button { font: inherit; }
 .project-index-entry:nth-child(even) .project-index-media { grid-column: 2; }
 .project-index-entry:nth-child(even) h3 { grid-column: 1; grid-row: 1; }
 .project-index-media { position: relative; width: 100%; overflow: hidden; background: #e9e8e4; aspect-ratio: 16 / 9; }
+.project-index-media::after { position: absolute; z-index: 1; top: 50%; left: 50%; color: var(--paper); content: "Explore"; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; opacity: 0; text-transform: uppercase; transform: translate3d(-50%, calc(-50% + 8px), 0); transition: opacity 220ms ease, transform 260ms var(--motion-ease); }
 .project-index-entry--portrait .project-index-media { max-width: min(100%, 780px); aspect-ratio: 4 / 5; }
 .project-index-entry:nth-child(odd).project-index-entry--portrait .project-index-media { justify-self: start; }
 .project-index-entry:nth-child(even) .project-index-media { justify-self: end; }
 .project-index-media img { object-fit: cover; transition: transform 700ms var(--motion-ease); }
 .project-index-entry:hover .project-index-media img { transform: scale(1.018); }
+.project-index-entry:hover .project-index-media::after { opacity: 1; transform: translate3d(-50%, -50%, 0); }
 .project-index-entry h3 { max-width: 15ch; margin: 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(14px, 1.25vw, 19px); font-weight: 500; letter-spacing: 0.035em; line-height: 1.22; }
 .project-index-title { display: grid; align-self: end; gap: 10px; color: var(--ink); text-decoration: none; }
 .project-index-title p { margin: 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
 .project-index-title:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 .project-index-entry:nth-child(even) .project-index-title { grid-column: 1; grid-row: 1; }
 .about-section { position: relative; display: grid; min-height: min(78svh, 760px); padding: clamp(84px, 13vw, 190px) clamp(20px, 16vw, 280px); place-items: center; overflow: hidden; background: #f5f3ef url("/images/surfaces/white-marble.png") center / cover no-repeat; isolation: isolate; }
-.about-section::before { position: absolute; z-index: -1; inset: 0; background: rgba(255, 255, 255, 0.34); content: ""; }
+.about-section::before { position: absolute; z-index: -1; inset: 0; background: rgba(255, 255, 255, 0.12); content: ""; }
 .about-copy { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.75fr); gap: clamp(36px, 8vw, 144px); align-items: end; }
-.landing-contact-section { display: grid; grid-template-columns: minmax(0, 1fr) auto; min-height: min(44svh, 500px); padding: clamp(64px, 9vw, 132px) clamp(20px, 7vw, 120px); align-items: end; gap: clamp(40px, 8vw, 144px); background: var(--ink); color: var(--paper); }
+.landing-contact-section { display: grid; grid-template-columns: minmax(0, 1fr) auto; min-height: min(44svh, 500px); padding: clamp(64px, 9vw, 132px) clamp(20px, 7vw, 120px); align-items: end; gap: clamp(40px, 8vw, 144px); background: #f5f3ef url("/images/surfaces/white-marble.png") center / cover no-repeat; color: var(--ink); }
 .landing-contact-section > h2 { max-width: 9ch; }
 .contact-link { display: inline-flex; width: fit-content; align-items: center; gap: 22px; color: currentColor; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(16px, 1.55vw, 23px); letter-spacing: 0.025em; text-decoration: none; }
 .contact-link svg { width: 64px; height: 24px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.15; transition: transform 200ms var(--motion-ease); }
