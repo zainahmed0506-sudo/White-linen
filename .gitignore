@@ -1,0 +1,20 @@
+# Dependencies and generated output
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Local visual-review captures
+desktop-*.png
+hero-*.png
+mobile-*.png
+opening-*.png
+
+# Supplied source archives and originals; the site uses browser-ready copies in public/images/projects/optimized/
+4.Selected Images/
+4.Selected Images.zip
+logo/
+/public/images/brand/
+/public/images/projects/*.jpg
+
+# Local agent context
+PRODUCT.md
