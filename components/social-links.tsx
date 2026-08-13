@@ -22,7 +22,7 @@ export function SocialLinks({ id }: { id?: string }) {
   return (
     <nav className="social-links" id={id} aria-label="Social media links">
       {socialPlatforms.map((social) => (
-        <a className="social-link" href="/contact#social" key={social.label} aria-label={`${social.label} details coming soon`}>
+        <a className="social-link" href="#footer" key={social.label} aria-label={`${social.label} details coming soon`}>
           <SocialIcon name={social.icon} />
         </a>
       ))}

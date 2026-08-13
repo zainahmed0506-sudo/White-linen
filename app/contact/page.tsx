@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
-import { ContactPage } from "../../components/contact-page";
-
-export const metadata: Metadata = {
-  title: "Contact | White Linen",
-  description: "Contact White Linen Interiors.",
-};
+import { redirect } from "next/navigation";
 
 export default function Contact() {
-  return <ContactPage />;
+  redirect("/#footer");
 }

@@ -25,7 +25,7 @@ export function ContactPage() {
 
   return (
     <main className="contact-page" id="top">
-      <SiteNavigation className={`final-navbar final-navbar--visible${hasScrolled ? " final-navbar--scrolled" : ""}`} rootNavigation contactPage />
+      <SiteNavigation className={`final-navbar final-navbar--visible${hasScrolled ? " final-navbar--scrolled" : ""}`} rootNavigation />
       <section className="contact-page__hero-media" aria-labelledby="contact-title">
         <Image
           src="/images/hero/optimized/kitchen-living.jpg"

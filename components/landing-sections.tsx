@@ -3,21 +3,12 @@ import Link from "next/link";
 import { projects } from "./project-data";
 import { SiteFooter } from "./site-footer";
 
-function Arrow() {
-  return (
-    <svg viewBox="0 0 64 24" aria-hidden="true" focusable="false">
-      <path d="M2 12h54M47 4l8 8-8 8" />
-    </svg>
-  );
-}
-
 export function LandingSections() {
   return (
     <div className="site-content">
       <section className="projects-section" id="projects" aria-labelledby="projects-title">
         <div className="section-heading section-heading--projects">
           <h2 id="projects-title">Portfolio</h2>
-          <p>Five spaces, each with a character of its own.</p>
         </div>
 
         <div className="project-index">
@@ -33,14 +24,6 @@ export function LandingSections() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="contact-section landing-contact-section" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Let&apos;s create your next space.</h2>
-        <a className="contact-link" href="/contact">
-          Contact us now
-          <Arrow />
-        </a>
       </section>
 
       <SiteFooter />

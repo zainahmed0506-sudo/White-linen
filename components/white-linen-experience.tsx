@@ -136,12 +136,8 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
           sizes="100vw"
           style={{ objectPosition: projectImages[current].objectPosition }}
         />
-        <div className="hero-copy">
-          <h1>Atmosphere is everything.</h1>
-        </div>
         <a className="hero-project-link" href="/recent-work">
           Explore our work
-          <LineArrow direction="next" />
         </a>
         <div className="carousel-controls" role="group" aria-label="Project image controls">
           <button type="button" className="line-control" onClick={() => move("previous")} aria-label="Previous project image">
@@ -173,6 +169,12 @@ export function WhiteLinenExperience() {
   }, []);
 
   useEffect(() => {
+    if (window.location.hash === "#projects") {
+      setStage("hero");
+      window.requestAnimationFrame(() => document.getElementById("projects")?.scrollIntoView());
+      return;
+    }
+
     if (reducedMotion) {
       setStage("hero");
       return;
