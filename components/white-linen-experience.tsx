@@ -51,6 +51,7 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
   const transitionTimer = useRef<number | null>(null);
   const currentRef = useRef(0);
   const transitionRef = useRef(false);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const nextIndex = (current + 1) % projectImages.length;
 
@@ -113,9 +114,25 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
     changeSlide(next, nextDirection);
   };
 
+  const startSwipe = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "touch") return;
+    touchStart.current = { x: event.clientX, y: event.clientY };
+  };
+
+  const finishSwipe = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!touchStart.current || event.pointerType !== "touch") return;
+    const { x, y } = touchStart.current;
+    touchStart.current = null;
+    const horizontalDistance = event.clientX - x;
+    const verticalDistance = event.clientY - y;
+
+    if (Math.abs(horizontalDistance) < 44 || Math.abs(horizontalDistance) <= Math.abs(verticalDistance)) return;
+    move(horizontalDistance < 0 ? "next" : "previous");
+  };
+
   return (
     <section className="project-hero" aria-label="Completed project images">
-      <div className="project-frame">
+      <div className="project-frame" onPointerDown={startSwipe} onPointerUp={finishSwipe} onPointerCancel={() => { touchStart.current = null; }}>
         {previous !== null && (
           <Image
             className={`carousel-image carousel-image--leaving carousel-image--${direction}`}
@@ -128,7 +145,7 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
         )}
         <Image
           key={current}
-          className={`carousel-image${previous !== null && !reducedMotion ? ` carousel-image--entering carousel-image--${direction}` : ""}`}
+          className={`carousel-image${enabled && !reducedMotion ? " carousel-image--mobile-pan" : ""}${previous !== null && !reducedMotion ? ` carousel-image--entering carousel-image--${direction}` : ""}`}
           src={projectImages[current].src}
           alt={projectImages[current].alt}
           fill
