@@ -14,10 +14,16 @@ const TIMING = {
   revealDuration: 1400,
   carouselInterval: 6200,
   slideDuration: 560,
+  mobilePanDuration: 12000,
+  mobileSlideDuration: 560,
 } as const;
 
 type Stage = "opening" | "transitioning" | "hero";
 type Direction = "next" | "previous";
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 700px)").matches;
+}
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -71,7 +77,7 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
     transitionTimer.current = window.setTimeout(() => {
       setPrevious(null);
       transitionRef.current = false;
-    }, TIMING.slideDuration);
+    }, isMobileViewport() ? TIMING.mobileSlideDuration : TIMING.slideDuration);
   }, []);
 
   useEffect(() => {
@@ -92,7 +98,7 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
       if (document.hidden) return;
       autoplayTimer.current = window.setTimeout(() => {
         if (nextReady && !document.hidden) changeSlide(nextIndex, "next");
-      }, TIMING.carouselInterval);
+      }, isMobileViewport() ? TIMING.mobilePanDuration : TIMING.carouselInterval);
     };
 
     document.addEventListener("visibilitychange", scheduleAutoplay);
