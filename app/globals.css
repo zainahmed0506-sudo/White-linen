@@ -42,7 +42,7 @@ button { font: inherit; }
 .wordmark-divider { position: relative; z-index: 2; display: block; width: 44%; height: 1px; margin: clamp(9px, 1.15vw, 16px) 0 clamp(8px, 0.9vw, 13px); background: currentColor; }
 .wordmark-sub { font-size: clamp(8px, 0.75vw, 12px); letter-spacing: 0.65em; line-height: 1; padding-left: 0.65em; }
 .wordmark--compact .wordmark-main, .wordmark--compact .wordmark-sub { font-size: clamp(16px, 1.4vw, 21px); letter-spacing: 0.28em; padding-left: 0.28em; }
-.wordmark--compact { flex-direction: row; gap: 0.7em; align-items: baseline; }
+.wordmark--compact { flex-direction: row; gap: 0.45em; align-items: baseline; }
 .wordmark--compact .wordmark-divider { display: none; }
 
 .opening-brand { position: absolute; z-index: 1; top: 50%; left: 50%; opacity: 0; transform: translate3d(-50%, -50%, 0); pointer-events: none; animation: fade-in-opening-brand 500ms var(--motion-ease) 140ms forwards; }
