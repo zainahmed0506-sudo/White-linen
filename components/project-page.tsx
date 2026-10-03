@@ -18,8 +18,6 @@ export function ProjectPage({ project }: { project: Project }) {
         <div className="project-page__heading-inner">
           <div className="project-page__heading-title">
             <h1 id="project-title">{project.title}</h1>
-            <p className="project-page__descriptor">{project.descriptor}</p>
-            <p>{project.introduction}</p>
           </div>
         </div>
       </header>

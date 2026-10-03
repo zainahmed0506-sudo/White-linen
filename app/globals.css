@@ -164,8 +164,8 @@ button { font: inherit; }
 .project-navbar .final-navbar__surface { display: none; }
 .project-page__heading { width: min(100%, 1440px); margin: 0 auto; padding: clamp(58px, 4.25vw, 68px) clamp(20px, 5vw, 72px) clamp(58px, 4.25vw, 68px); }
 .project-page__heading-inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(18px, 2.2vw, 32px); align-items: end; }
-.project-page__heading-title { display: grid; grid-column: 6 / span 5; align-content: start; }
-.project-page__heading-title h1 { max-width: 10ch; margin: 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(36px, 3.2vw, 52px); font-weight: 400; letter-spacing: -0.025em; line-height: 0.98; }
+.project-page__heading-title { display: grid; grid-column: 1 / -1; justify-items: center; align-content: start; text-align: center; }
+.project-page__heading-title h1 { max-width: none; margin: 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(36px, 3.2vw, 52px); font-weight: 400; letter-spacing: -0.025em; line-height: 0.98; white-space: nowrap; }
 .project-page__heading-title .project-page__descriptor { margin: 14px 0 0 !important; }
 .project-page__heading-title > p:last-child { max-width: 38ch; margin: 20px 0 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(13px, 1vw, 16px); line-height: 1.5; }
 .recent-work-page__hero { position: relative; display: grid; min-height: min(78svh, 900px); overflow: hidden; background: #b8aa96; }
@@ -279,7 +279,7 @@ button { font: inherit; }
   .project-page__heading { padding: 50px 20px 40px; }
   .project-page__heading-inner { grid-template-columns: 1fr; gap: 28px; }
   .project-page__heading-title { grid-column: 1; }
-  .project-page__heading-title h1 { font-size: clamp(38px, 11vw, 56px); }
+  .project-page__heading-title h1 { font-size: clamp(24px, 8.2vw, 36px); }
   .recent-work-page__hero { min-height: min(72svh, 620px); }
   .recent-work-page__hero-content { right: 20px; bottom: 52px; left: 20px; }
   .recent-work-page__hero-content h1 { font-size: clamp(48px, 13vw, 72px); }
