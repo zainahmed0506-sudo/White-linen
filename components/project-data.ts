@@ -25,6 +25,10 @@ export const projects: Project[] = [
       { src: "/images/projects/dh-68/34.jpg", alt: "Interior detail from DH 68.", caption: "Material contrast held in a restrained palette." },
       { src: "/images/projects/dh-68/35.jpg", alt: "Interior detail from DH 68.", caption: "A close study of light across the room." },
       { src: "/images/projects/dh-68/39.jpg", alt: "Interior detail from DH 68.", caption: "Sculptural elements anchor the space." },
+      { src: "/images/projects/dh-68/40.jpg", alt: "Additional interior view from DH 68.", caption: "Architectural lines frame the interior." },
+      { src: "/images/projects/dh-68/49.jpg", alt: "Additional interior view from DH 68.", caption: "Soft finishes continue through the home." },
+      { src: "/images/projects/dh-68/54.jpg", alt: "Additional interior view from DH 68.", caption: "A considered transition between rooms." },
+      { src: "/images/projects/dh-68/65.jpg", alt: "Additional interior view from DH 68.", caption: "Natural light reveals the material palette." },
     ],
   },
   {
@@ -51,6 +55,10 @@ export const projects: Project[] = [
       { src: "/images/projects/mansion-06/IMG_0260.jpeg", alt: "Interior detail from Mansion 06.", caption: "Subtle illumination lends depth to the composition." },
       { src: "/images/projects/mansion-06/IMG_0336.jpeg", alt: "Interior detail from Mansion 06.", caption: "Tones are held close for a seamless feel." },
       { src: "/images/projects/mansion-06/IMG_0403.jpeg", alt: "Interior detail from Mansion 06.", caption: "A considered view through the interior." },
+      { src: "/images/projects/mansion-06/IMG_0299.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Layered details shape the atmosphere." },
+      { src: "/images/projects/mansion-06/IMG_0835.jpeg", alt: "Additional interior view from Mansion 06.", caption: "A quiet study in texture and proportion." },
+      { src: "/images/projects/mansion-06/IMG_0846.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Soft light moves across the room." },
+      { src: "/images/projects/mansion-06/IMG_4726.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Refined finishes complete the sequence." },
     ],
   },
   {
@@ -64,6 +72,10 @@ export const projects: Project[] = [
       { src: "/images/projects/mansion-02/IMG_3835.jpeg", alt: "Interior detail from Mansion 02.", caption: "Furniture and architecture share a softened silhouette." },
       { src: "/images/projects/mansion-02/IMG_3886.jpeg", alt: "Interior detail from Mansion 02.", caption: "A pale palette expands the sense of space." },
       { src: "/images/projects/mansion-02/IMG_3934.jpeg", alt: "Interior detail from Mansion 02.", caption: "The eye moves from interior detail to the landscape beyond." },
+      { src: "/images/projects/mansion-02/IMG_3884.jpeg", alt: "Additional interior view from Mansion 02.", caption: "The interior opens toward the garden." },
+      { src: "/images/projects/mansion-02/IMG_3898.jpeg", alt: "Additional interior view from Mansion 02.", caption: "Natural finishes soften the architecture." },
+      { src: "/images/projects/mansion-02/IMG_3932.jpeg", alt: "Additional interior view from Mansion 02.", caption: "Light and landscape extend the room." },
+      { src: "/images/projects/mansion-02/IMG_4693.jpeg", alt: "Additional interior view from Mansion 02.", caption: "A composed view through the living space." },
     ],
   },
   {
@@ -77,6 +89,10 @@ export const projects: Project[] = [
       { src: "/images/projects/lv-38/IMG_2921.jpeg", alt: "Interior detail from LV 38.", caption: "Natural finishes carry the room without excess." },
       { src: "/images/projects/lv-38/IMG_2952.jpeg", alt: "Interior detail from LV 38.", caption: "A quiet threshold between spaces." },
       { src: "/images/projects/lv-38/IMG_3052.jpg", alt: "Interior detail from LV 38.", caption: "Small details complete the material story." },
+      { src: "/images/projects/lv-38/5E74667B-311B-4048-8DC8-699580CF9A8E.jpg", alt: "Additional interior view from LV 38.", caption: "Curved forms continue through the interior." },
+      { src: "/images/projects/lv-38/IMG_3332.jpeg", alt: "Additional interior view from LV 38.", caption: "Pale surfaces create a calm backdrop." },
+      { src: "/images/projects/lv-38/IMG_3389.jpeg", alt: "Additional interior view from LV 38.", caption: "Material details bring warmth and depth." },
+      { src: "/images/projects/lv-38/IMG_3602.jpeg", alt: "Additional interior view from LV 38.", caption: "A final perspective across the home." },
     ],
   },
 ];
