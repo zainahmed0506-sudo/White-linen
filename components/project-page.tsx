@@ -5,7 +5,8 @@ import { SiteFooter } from "./site-footer";
 import { SiteNavigation } from "./site-navigation";
 
 export function ProjectPage({ project }: { project: Project }) {
-  const images = project.images;
+  const featuredImage = project.cover;
+  const images = project.images.filter((image) => image.src !== featuredImage.src);
   const relatedProjects = projects
     .filter((relatedProject) => relatedProject.slug !== project.slug)
     .slice(0, 3);
@@ -22,15 +23,26 @@ export function ProjectPage({ project }: { project: Project }) {
         </div>
       </header>
 
+      <figure className="project-page__feature">
+        <div className="project-page__feature-media">
+          <Image
+            src={featuredImage.src}
+            alt={featuredImage.alt}
+            fill
+            priority
+            sizes="(max-width: 700px) 100vw, 92vw"
+          />
+        </div>
+      </figure>
+
       <section className="project-page__gallery" aria-label={`${project.title} image gallery`}>
         <div className="project-gallery">
-          {images.map((image, index) => (
+          {images.map((image) => (
             <figure className="project-gallery__item" key={image.src}>
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                priority={index === 0}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
             </figure>

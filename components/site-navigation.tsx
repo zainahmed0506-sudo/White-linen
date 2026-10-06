@@ -17,15 +17,14 @@ export function SiteNavigation({ className, ariaHidden, rootNavigation = false }
 
   return (
     <header className={className} aria-hidden={ariaHidden}>
-      <div className="final-navbar__surface" aria-hidden="true" />
       <nav className="navbar-links navbar-links--left" aria-label="Primary navigation">
         <Link className="navbar-link" href={sectionLink("#about")}>About</Link>
-        <Link className="navbar-link" href={sectionLink("#projects")}>Portfolio</Link>
+        <Link className="navbar-link" href="/portfolio">Portfolio</Link>
       </nav>
       <Link className="final-navbar__brand" href="/" aria-label="White Linen Interiors home"><Wordmark compact /></Link>
       <nav className="navbar-links navbar-links--right" aria-label="Secondary navigation">
-        <Link className="navbar-link" href="/recent-work">Current work</Link>
-        <Link className="navbar-link" href={rootNavigation ? "/#footer" : "#footer"}>Contact</Link>
+        <span className="navbar-link navbar-link--static">Current work</span>
+        <Link className="navbar-link" href="/contact">Contact</Link>
       </nav>
       <button
         type="button"
@@ -40,9 +39,9 @@ export function SiteNavigation({ className, ariaHidden, rootNavigation = false }
       </button>
       <nav id="mobile-site-navigation" className={`mobile-navigation${menuOpen ? " mobile-navigation--open" : ""}`} aria-label="Mobile navigation">
         <Link className="mobile-navigation__link" href={sectionLink("#about")} onClick={closeMenu}>About</Link>
-        <Link className="mobile-navigation__link" href={sectionLink("#projects")} onClick={closeMenu}>Portfolio</Link>
-        <Link className="mobile-navigation__link" href="/recent-work" onClick={closeMenu}>Current work</Link>
-        <Link className="mobile-navigation__link" href={rootNavigation ? "/#footer" : "#footer"} onClick={closeMenu}>Contact</Link>
+        <Link className="mobile-navigation__link" href="/portfolio" onClick={closeMenu}>Portfolio</Link>
+        <span className="mobile-navigation__link mobile-navigation__link--static">Current work</span>
+        <Link className="mobile-navigation__link" href="/contact" onClick={closeMenu}>Contact</Link>
       </nav>
     </header>
   );

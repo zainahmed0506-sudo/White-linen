@@ -1,7 +1,9 @@
 export type ProjectImage = {
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
+  width?: number;
+  height?: number;
 };
 
 export type Project = {
@@ -13,88 +15,187 @@ export type Project = {
   images: ProjectImage[];
 };
 
+function projectImage(
+  slug: string,
+  projectTitle: string,
+  file: string,
+  width: number,
+  height: number,
+): ProjectImage {
+  return {
+    src: `/images/projects/${slug}/${file}`,
+    alt: `Interior view from ${projectTitle}.`,
+    width,
+    height,
+  };
+}
+
+const dh68Images = [
+  projectImage("dh-68", "DH 68", "6.jpg", 8500, 5667),
+  projectImage("dh-68", "DH 68", "1.jpg", 8500, 5667),
+  projectImage("dh-68", "DH 68", "2.jpg", 5667, 8500),
+  projectImage("dh-68", "DH 68", "3.jpg", 5667, 8500),
+  projectImage("dh-68", "DH 68", "4.jpg", 5667, 8500),
+  projectImage("dh-68", "DH 68", "5.jpg", 5667, 8500),
+  projectImage("dh-68", "DH 68", "7.jpg", 8500, 5667),
+  projectImage("dh-68", "DH 68", "8.jpg", 8500, 5667),
+  projectImage("dh-68", "DH 68", "9.jpg", 8500, 5667),
+  projectImage("dh-68", "DH 68", "53.jpg", 8500, 5667),
+];
+
+const gp225Images = [
+  projectImage("gp-225", "GP 225", "IMG_3217.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5390.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5389.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5403.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_3195.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5406.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5402.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5391.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5386.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_3214.jpeg", 4032, 3024),
+  projectImage("gp-225", "GP 225", "IMG_5379.jpeg", 4032, 3024),
+];
+
+const leReveImages = [
+  projectImage("le-reve", "Le Reve", "IMG_0795.jpeg", 5712, 4284),
+  projectImage("le-reve", "Le Reve", "IMG_0790.jpeg", 4284, 5712),
+  projectImage("le-reve", "Le Reve", "IMG_0787.jpeg", 4284, 5712),
+  projectImage("le-reve", "Le Reve", "IMG_0786.jpeg", 4284, 5712),
+  projectImage("le-reve", "Le Reve", "IMG_0093.jpeg", 4032, 3024),
+  projectImage("le-reve", "Le Reve", "IMG_0106.jpeg", 4284, 5712),
+  projectImage("le-reve", "Le Reve", "IMG_0091.jpeg", 4032, 3024),
+  projectImage("le-reve", "Le Reve", "IMG_0092.jpeg", 4032, 3024),
+  projectImage("le-reve", "Le Reve", "IMG_0107.jpeg", 4284, 5712),
+  projectImage("le-reve", "Le Reve", "IMG_0103.jpeg", 4032, 3024),
+];
+
+const barari2Images = [
+  projectImage("barari-2", "Barari 2", "IMG_3884.jpeg", 3024, 4032),
+  projectImage("barari-2", "Barari 2", "IMG_4681.jpeg", 3690, 4653),
+  projectImage("barari-2", "Barari 2", "IMG_4712.jpeg", 4257, 5677),
+  projectImage("barari-2", "Barari 2", "IMG_4686.jpeg", 3966, 5288),
+  projectImage("barari-2", "Barari 2", "IMG_4715.jpeg", 4254, 5673),
+  projectImage("barari-2", "Barari 2", "IMG_4684.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4696.jpeg", 4264, 5686),
+  projectImage("barari-2", "Barari 2", "IMG_4682.jpeg", 4014, 5526),
+  projectImage("barari-2", "Barari 2", "IMG_4704.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4680.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4689.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4702.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4718.jpeg", 4206, 5608),
+  projectImage("barari-2", "Barari 2", "IMG_4720.jpeg", 2960, 3947),
+  projectImage("barari-2", "Barari 2", "IMG_4721.jpeg", 4258, 5678),
+  projectImage("barari-2", "Barari 2", "IMG_4722.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4726.jpeg", 4266, 5688),
+  projectImage("barari-2", "Barari 2", "IMG_4734.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4738.jpeg", 4284, 5712),
+  projectImage("barari-2", "Barari 2", "IMG_4745.jpeg", 4284, 5712),
+];
+
+const g33Images = [
+  projectImage("g33", "G33", "IMG_9377.jpeg", 2956, 3941),
+  projectImage("g33", "G33", "IMG_7018.jpeg", 2967, 4204),
+  projectImage("g33", "G33", "IMG_7021.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7014.jpeg", 2878, 3838),
+  projectImage("g33", "G33", "IMG_7011.jpeg", 3140, 4464),
+  projectImage("g33", "G33", "IMG_7022.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7028.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7031.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7048.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7051.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7053.jpeg", 3024, 4032),
+  projectImage("g33", "G33", "IMG_7058.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7074.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7024.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7086.jpeg", 2789, 3719),
+  projectImage("g33", "G33", "IMG_7088.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7087.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7069.jpeg", 4234, 5646),
+  projectImage("g33", "G33", "IMG_7079.jpeg", 4284, 5712),
+  projectImage("g33", "G33", "IMG_7040.jpeg", 4284, 5712),
+];
+
+const lv38Images = [
+  projectImage("lv-38", "LV 38", "2026 02 16 388 .jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 81.jpg", 5360, 8036),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 160099.jpg", 7605, 5072),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 162306.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 243.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 16 308.jpg", 8192, 5464),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 478.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 81 .jpg", 5360, 8036),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 474.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 25 .jpg", 8192, 5464),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 230.jpg", 5207, 7806),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 16 183.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 16 388.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 291.jpg", 8192, 5464),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 16 270.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 697.jpg", 5121, 7678),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 299.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 346.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 16 278.jpg", 5464, 8192),
+  projectImage("lv-38", "LV 38", "Premfors_2026 02 26 379.jpg", 5464, 8192),
+];
+
+const mansion6Images = [
+  projectImage("mansion-6", "Mansion 6", "IMG_0846.jpeg", 5712, 4284),
+  projectImage("mansion-6", "Mansion 6", "IMG_0837.jpeg", 5712, 4284),
+  projectImage("mansion-6", "Mansion 6", "IMG_8683.jpeg", 4032, 3024),
+  projectImage("mansion-6", "Mansion 6", "IMG_0836.jpeg", 5712, 4284),
+  projectImage("mansion-6", "Mansion 6", "IMG_8673.jpeg", 4032, 3024),
+  projectImage("mansion-6", "Mansion 6", "IMG_0403.jpeg", 3024, 4032),
+  projectImage("mansion-6", "Mansion 6", "IMG_0404.jpeg", 3024, 4032),
+  projectImage("mansion-6", "Mansion 6", "IMG_0324.jpeg", 4032, 3024),
+  projectImage("mansion-6", "Mansion 6", "IMG_0286.jpeg", 4032, 3024),
+  projectImage("mansion-6", "Mansion 6", "IMG_0285.jpeg", 4032, 3024),
+];
+
+const redwoodImages = [
+  projectImage("redwood", "Redwood", "living.png", 3840, 2560),
+  projectImage("redwood", "Redwood", "bedroom.png", 3840, 2435),
+  projectImage("redwood", "Redwood", "dining.png", 3840, 2557),
+  projectImage("redwood", "Redwood", "suite.png", 3840, 2557),
+  projectImage("redwood", "Redwood", "detail.png", 3840, 2557),
+];
+
+const alBarari04Images = [
+  projectImage("al-barari-04", "Al Barari 04", "library.png", 3840, 2561),
+  projectImage("al-barari-04", "Al Barari 04", "bar.png", 3840, 2557),
+  projectImage("al-barari-04", "Al Barari 04", "spa.png", 3840, 2557),
+  projectImage("al-barari-04", "Al Barari 04", "master-bedroom.png", 3840, 2560),
+  projectImage("al-barari-04", "Al Barari 04", "cinema.png", 3840, 2561),
+];
+
+const ilPrimoImages = [
+  projectImage("il-primo", "Il Primo", "formal-living.png", 3840, 2560),
+  projectImage("il-primo", "Il Primo", "dining.png", 3840, 2560),
+  projectImage("il-primo", "Il Primo", "family.png", 3840, 2560),
+  projectImage("il-primo", "Il Primo", "hers-master-bedroom.png", 3840, 2497),
+  projectImage("il-primo", "Il Primo", "his-bathroom.png", 3840, 2627),
+];
+
+const tilalAlGhafImages = [
+  projectImage("tilal-al-ghaf", "Tilal Al Ghaf", "overview.png", 3840, 2557),
+  projectImage("tilal-al-ghaf", "Tilal Al Ghaf", "living.png", 3840, 2560),
+  projectImage("tilal-al-ghaf", "Tilal Al Ghaf", "dining.png", 3840, 2557),
+  projectImage("tilal-al-ghaf", "Tilal Al Ghaf", "master-bedroom.png", 3840, 2557),
+  projectImage("tilal-al-ghaf", "Tilal Al Ghaf", "master-bathroom.png", 3840, 2557),
+];
+
 export const projects: Project[] = [
-  {
-    slug: "dh-68",
-    title: "Sienna House",
-    descriptor: "Sculptural calm",
-    cover: { src: "/images/projects/optimized/dh-68-living-room.jpg", alt: "Living room with a curved tan sofa, staircase, and pale stone columns.", caption: "Soft curves and pale stone set a composed rhythm." },
-    introduction: "A sequence of light, material, and generous proportion.",
-    images: [
-      { src: "/images/projects/dh-68/33.jpg", alt: "Interior detail from DH 68.", caption: "A quiet composition in texture and tone." },
-      { src: "/images/projects/dh-68/34.jpg", alt: "Interior detail from DH 68.", caption: "Material contrast held in a restrained palette." },
-      { src: "/images/projects/dh-68/35.jpg", alt: "Interior detail from DH 68.", caption: "A close study of light across the room." },
-      { src: "/images/projects/dh-68/39.jpg", alt: "Interior detail from DH 68.", caption: "Sculptural elements anchor the space." },
-      { src: "/images/projects/dh-68/40.jpg", alt: "Additional interior view from DH 68.", caption: "Architectural lines frame the interior." },
-      { src: "/images/projects/dh-68/49.jpg", alt: "Additional interior view from DH 68.", caption: "Soft finishes continue through the home." },
-      { src: "/images/projects/dh-68/54.jpg", alt: "Additional interior view from DH 68.", caption: "A considered transition between rooms." },
-      { src: "/images/projects/dh-68/65.jpg", alt: "Additional interior view from DH 68.", caption: "Natural light reveals the material palette." },
-    ],
-  },
-  {
-    slug: "le-reve",
-    title: "Le Reve",
-    descriptor: "Quiet retreat",
-    cover: { src: "/images/projects/optimized/le-reve.jpg", alt: "Warm bedroom with a wood bedside table, sculptural lamp, and patterned linens.", caption: "Warm timber and tailored textiles create an intimate setting." },
-    introduction: "Soft light and tactile details guide each private room.",
-    images: [
-      { src: "/images/projects/le-reve/IMG_0054.jpeg", alt: "Interior detail from Le Reve.", caption: "A measured balance of warmth and softness." },
-      { src: "/images/projects/le-reve/IMG_0786.jpeg", alt: "Interior detail from Le Reve.", caption: "Layered finishes bring depth to the room." },
-      { src: "/images/projects/le-reve/IMG_0790.jpeg", alt: "Interior detail from Le Reve.", caption: "Light falls gently across the material palette." },
-      { src: "/images/projects/le-reve/IMG_9452.jpeg", alt: "Interior detail from Le Reve.", caption: "A small moment of texture and tone." },
-    ],
-  },
-  {
-    slug: "mansion-06",
-    title: "Sage House",
-    descriptor: "Softly composed",
-    cover: { src: "/images/projects/optimized/mansion-06.jpg", alt: "Refined bedroom with illuminated shelving and pale textured wall panels.", caption: "Ambient light and quiet detail shape the atmosphere." },
-    introduction: "A refined interior sequence shaped through light and proportion.",
-    images: [
-      { src: "/images/projects/mansion-06/IMG_0229.jpeg", alt: "Interior detail from Mansion 06.", caption: "A calm framework of material and shadow." },
-      { src: "/images/projects/mansion-06/IMG_0260.jpeg", alt: "Interior detail from Mansion 06.", caption: "Subtle illumination lends depth to the composition." },
-      { src: "/images/projects/mansion-06/IMG_0336.jpeg", alt: "Interior detail from Mansion 06.", caption: "Tones are held close for a seamless feel." },
-      { src: "/images/projects/mansion-06/IMG_0403.jpeg", alt: "Interior detail from Mansion 06.", caption: "A considered view through the interior." },
-      { src: "/images/projects/mansion-06/IMG_0299.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Layered details shape the atmosphere." },
-      { src: "/images/projects/mansion-06/IMG_0835.jpeg", alt: "Additional interior view from Mansion 06.", caption: "A quiet study in texture and proportion." },
-      { src: "/images/projects/mansion-06/IMG_0846.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Soft light moves across the room." },
-      { src: "/images/projects/mansion-06/IMG_4726.jpeg", alt: "Additional interior view from Mansion 06.", caption: "Refined finishes complete the sequence." },
-    ],
-  },
-  {
-    slug: "mansion-02",
-    title: "Garden House",
-    descriptor: "Garden-facing living",
-    cover: { src: "/images/projects/optimized/mansion-02.jpg", alt: "Living room with a wood slat ceiling, sculptural furniture, and a garden view.", caption: "Natural light and sculptural forms keep the living space open." },
-    introduction: "A generous, light-filled setting with a close connection to the outdoors.",
-    images: [
-      { src: "/images/projects/mansion-02/IMG_3548.jpeg", alt: "Interior detail from Mansion 02.", caption: "A view that gives material and daylight equal presence." },
-      { src: "/images/projects/mansion-02/IMG_3835.jpeg", alt: "Interior detail from Mansion 02.", caption: "Furniture and architecture share a softened silhouette." },
-      { src: "/images/projects/mansion-02/IMG_3886.jpeg", alt: "Interior detail from Mansion 02.", caption: "A pale palette expands the sense of space." },
-      { src: "/images/projects/mansion-02/IMG_3934.jpeg", alt: "Interior detail from Mansion 02.", caption: "The eye moves from interior detail to the landscape beyond." },
-      { src: "/images/projects/mansion-02/IMG_3884.jpeg", alt: "Additional interior view from Mansion 02.", caption: "The interior opens toward the garden." },
-      { src: "/images/projects/mansion-02/IMG_3898.jpeg", alt: "Additional interior view from Mansion 02.", caption: "Natural finishes soften the architecture." },
-      { src: "/images/projects/mansion-02/IMG_3932.jpeg", alt: "Additional interior view from Mansion 02.", caption: "Light and landscape extend the room." },
-      { src: "/images/projects/mansion-02/IMG_4693.jpeg", alt: "Additional interior view from Mansion 02.", caption: "A composed view through the living space." },
-    ],
-  },
-  {
-    slug: "lv-38",
-    title: "The Arched House",
-    descriptor: "Pale materiality",
-    cover: { src: "/images/projects/optimized/lv-38.jpg", alt: "Living room with an arched opening, marble table, and softly layered furnishings.", caption: "Pale stone and curved forms give the rooms a relaxed cadence." },
-    introduction: "An interior of calm layers, curved lines, and quiet contrast.",
-    images: [
-      { src: "/images/projects/lv-38/IMG_2919.jpeg", alt: "Interior detail from LV 38.", caption: "A considered interplay of texture and form." },
-      { src: "/images/projects/lv-38/IMG_2921.jpeg", alt: "Interior detail from LV 38.", caption: "Natural finishes carry the room without excess." },
-      { src: "/images/projects/lv-38/IMG_2952.jpeg", alt: "Interior detail from LV 38.", caption: "A quiet threshold between spaces." },
-      { src: "/images/projects/lv-38/IMG_3052.jpg", alt: "Interior detail from LV 38.", caption: "Small details complete the material story." },
-      { src: "/images/projects/lv-38/5E74667B-311B-4048-8DC8-699580CF9A8E.jpg", alt: "Additional interior view from LV 38.", caption: "Curved forms continue through the interior." },
-      { src: "/images/projects/lv-38/IMG_3332.jpeg", alt: "Additional interior view from LV 38.", caption: "Pale surfaces create a calm backdrop." },
-      { src: "/images/projects/lv-38/IMG_3389.jpeg", alt: "Additional interior view from LV 38.", caption: "Material details bring warmth and depth." },
-      { src: "/images/projects/lv-38/IMG_3602.jpeg", alt: "Additional interior view from LV 38.", caption: "A final perspective across the home." },
-    ],
-  },
+  { slug: "g33", title: "G33", descriptor: "Residential interior", cover: g33Images[5], introduction: "A White Linen residential interior.", images: g33Images },
+  { slug: "lv-38", title: "LV 38", descriptor: "Residential interior", cover: lv38Images[9], introduction: "A White Linen residential interior.", images: lv38Images },
+  { slug: "barari-2", title: "Barari 2", descriptor: "Residential interior", cover: barari2Images[1], introduction: "A White Linen residential interior.", images: barari2Images },
+  { slug: "dh-68", title: "DH 68", descriptor: "Residential interior", cover: dh68Images[1], introduction: "A White Linen residential interior.", images: dh68Images },
+  { slug: "gp-225", title: "GP 225", descriptor: "Residential interior", cover: gp225Images[4], introduction: "A White Linen residential interior.", images: gp225Images },
+  { slug: "le-reve", title: "Le Reve", descriptor: "Residential interior", cover: leReveImages[9], introduction: "A White Linen residential interior.", images: leReveImages },
+  { slug: "mansion-6", title: "Mansion 6", descriptor: "Residential interior", cover: mansion6Images[5], introduction: "A White Linen residential interior.", images: mansion6Images },
+  { slug: "redwood", title: "Redwood", descriptor: "Residential interior", cover: redwoodImages[0], introduction: "A White Linen residential interior.", images: redwoodImages },
+  { slug: "al-barari-04", title: "Al Barari 04", descriptor: "Residential interior", cover: alBarari04Images[0], introduction: "A White Linen residential interior.", images: alBarari04Images },
+  { slug: "il-primo", title: "Il Primo", descriptor: "Residential interior", cover: ilPrimoImages[0], introduction: "A White Linen residential interior.", images: ilPrimoImages },
+  { slug: "tilal-al-ghaf", title: "Tilal Al Ghaf", descriptor: "Residential interior", cover: tilalAlGhafImages[0], introduction: "A White Linen residential interior.", images: tilalAlGhafImages },
 ];
 
 export const recentWorkImages: ProjectImage[] = [

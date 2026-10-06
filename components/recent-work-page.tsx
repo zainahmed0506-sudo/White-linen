@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeroPageNavigation } from "./hero-page-navigation";
 import { recentWorkImages } from "./project-data";
 import { SiteFooter } from "./site-footer";
+import { SiteNavigation } from "./site-navigation";
 
 export function RecentWorkPage() {
   return (
     <main className="recent-work-page" id="top">
-      <HeroPageNavigation />
+      <SiteNavigation className="final-navbar final-navbar--visible project-navbar" rootNavigation />
       <section className="recent-work-page__hero" aria-label="Recent work image">
         <Image src={recentWorkImages[0].src} alt={recentWorkImages[0].alt} fill priority sizes="100vw" />
         <div className="recent-work-page__hero-content">

@@ -159,9 +159,12 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
           sizes="100vw"
           style={{ objectPosition: projectImages[current].objectPosition }}
         />
-        <a className="hero-project-link" href="/recent-work">
-          Explore our work
-        </a>
+        <div className="hero-project-meta">
+          <a className="hero-project-title" href={projectImages[current].href}>
+            {projectImages[current].title}
+          </a>
+          <span className="hero-project-rule" aria-hidden="true" />
+        </div>
         <div className="carousel-controls" role="group" aria-label="Project image controls">
           <button type="button" className="line-control" onClick={() => move("previous")} aria-label="Previous project image">
             <LineArrow direction="previous" />
@@ -178,9 +181,7 @@ function ProjectCarousel({ enabled, reducedMotion }: { enabled: boolean; reduced
 export function WhiteLinenExperience() {
   const reducedMotion = useReducedMotion();
   const [stage, setStage] = useState<Stage>("opening");
-  const [hasScrolled, setHasScrolled] = useState(false);
   const firstImageReady = useRef(false);
-  const scrollState = useRef(false);
 
   useEffect(() => {
     const image = new window.Image();
@@ -216,8 +217,6 @@ export function WhiteLinenExperience() {
       setStage("transitioning");
       settleTimer = window.setTimeout(() => {
         window.scrollTo(0, 0);
-        scrollState.current = false;
-        setHasScrolled(false);
         setStage("hero");
         document.body.style.overflow = originalOverflow;
       }, TIMING.revealDuration);
@@ -232,35 +231,11 @@ export function WhiteLinenExperience() {
     };
   }, [reducedMotion]);
 
-  useEffect(() => {
-    if (stage !== "hero") return;
-
-    let frame = 0;
-    const updateNavbar = () => {
-      frame = 0;
-      const nextValue = window.scrollY > 12;
-      if (nextValue !== scrollState.current) {
-        scrollState.current = nextValue;
-        setHasScrolled(nextValue);
-      }
-    };
-    const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateNavbar);
-    };
-
-    updateNavbar();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, [stage]);
-
   const heroIsReady = stage === "hero";
 
   return (
     <main className={`white-linen-experience stage-${stage}`}>
-      <SiteNavigation className={`final-navbar${heroIsReady ? " final-navbar--visible" : ""}${hasScrolled ? " final-navbar--scrolled" : ""}`} ariaHidden={!heroIsReady} />
+      <SiteNavigation className={`final-navbar home-navbar${heroIsReady ? " final-navbar--visible" : ""}`} ariaHidden={!heroIsReady} />
       <div className="opening-canvas" aria-hidden={stage === "hero"}>
         <div className="opening-brand">
           <Wordmark />
