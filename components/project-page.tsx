@@ -28,7 +28,8 @@ export function ProjectPage({ project }: { project: Project }) {
           <Image
             src={featuredImage.src}
             alt={featuredImage.alt}
-            fill
+            width={featuredImage.width ?? 1600}
+            height={featuredImage.height ?? 1200}
             priority
             sizes="(max-width: 700px) 100vw, 92vw"
           />
@@ -42,7 +43,8 @@ export function ProjectPage({ project }: { project: Project }) {
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
+                width={image.width ?? 1600}
+                height={image.height ?? 1200}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
             </figure>
@@ -63,7 +65,8 @@ export function ProjectPage({ project }: { project: Project }) {
                 <Image
                   src={relatedProject.cover.src}
                   alt={relatedProject.cover.alt}
-                  fill
+                  width={relatedProject.cover.width ?? 1600}
+                  height={relatedProject.cover.height ?? 1200}
                   sizes="(max-width: 700px) 100vw, 33vw"
                 />
               </span>

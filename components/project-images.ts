@@ -15,27 +15,6 @@ export const projectImages: ProjectImage[] = [
     objectPosition: "center center",
   },
   {
-    src: "/images/projects/g33/IMG_7028.jpeg",
-    alt: "An art-filled lounge and billiards room from G33.",
-    title: "G33",
-    href: "/projects/g33",
-    objectPosition: "center 50%",
-  },
-  {
-    src: "/images/projects/barari-2/IMG_4682.jpeg",
-    alt: "A richly veined stone powder room from Barari 2.",
-    title: "Barari 2",
-    href: "/projects/barari-2",
-    objectPosition: "center 48%",
-  },
-  {
-    src: "/images/projects/gp-225/IMG_3217.jpeg",
-    alt: "A sculptural stair landing and indoor garden from GP 225.",
-    title: "GP 225",
-    href: "/projects/gp-225",
-    objectPosition: "center center",
-  },
-  {
     src: "/images/projects/redwood/living.png",
     alt: "A wide interior view from Redwood.",
     title: "Redwood",
