@@ -21,14 +21,30 @@ function projectImage(
   file: string,
   width: number,
   height: number,
+  alt?: string,
 ): ProjectImage {
   return {
     src: `/images/projects/${slug}/${file}`,
-    alt: `Interior view from ${projectTitle}.`,
+    alt: alt ?? `Interior view from ${projectTitle}.`,
     width,
     height,
   };
 }
+
+const australiaImages = [
+  projectImage("australia", "Australia", "living-wide.jpg", 2400, 1598, "Wide open-plan living room and kitchen in the Australia residence."),
+  projectImage("australia", "Australia", "foyer.jpg", 2400, 1600, "Warm timber foyer with a sculptural console and artwork."),
+  projectImage("australia", "Australia", "games-room.jpg", 2400, 1598, "Games room with a pool table, lounge seating, and a glass-block wall."),
+  projectImage("australia", "Australia", "wine-cellar.jpg", 2400, 1598, "Timber-lined wine cellar with illuminated bottle displays."),
+  projectImage("australia", "Australia", "lounge.jpg", 2400, 1601, "Contemporary lounge with an orange sofa and warm timber walls."),
+  projectImage("australia", "Australia", "bathroom.jpg", 2400, 1598, "Stone bathroom with a glass shower and softly lit vanity."),
+  projectImage("australia", "Australia", "dressing-room.jpg", 2400, 1598, "Walk-in dressing room with a central stone-topped island."),
+  projectImage("australia", "Australia", "bedroom-suite.jpg", 2400, 1598, "Neutral bedroom suite with layered timber and stone finishes."),
+  projectImage("australia", "Australia", "garage.jpg", 2400, 1598, "Warmly lit timber garage with a white vehicle."),
+  projectImage("australia", "Australia", "garden-bedroom.jpg", 2400, 1598, "Calm bedroom looking onto a private garden."),
+  projectImage("australia", "Australia", "spa.jpg", 2400, 1598, "Symmetrical spa room with twin circular stone pools."),
+  projectImage("australia", "Australia", "lower-lounge.jpg", 2400, 1601, "Lower lounge with an orange sofa and sculptural stone table."),
+];
 
 const dh68Images = [
   projectImage("dh-68", "DH 68", "6.jpg", 8500, 5667),
@@ -191,6 +207,7 @@ export const projects: Project[] = [
   { slug: "dh-68", title: "DH 68", descriptor: "Residential interior", cover: dh68Images[1], introduction: "A White Linen residential interior.", images: dh68Images },
   { slug: "gp-225", title: "GP 225", descriptor: "Residential interior", cover: gp225Images[4], introduction: "A White Linen residential interior.", images: gp225Images },
   { slug: "le-reve", title: "Le Reve", descriptor: "Residential interior", cover: leReveImages[9], introduction: "A White Linen residential interior.", images: leReveImages },
+  { slug: "australia", title: "Australia", descriptor: "Residential interior", cover: australiaImages[0], introduction: "A White Linen residential interior.", images: australiaImages },
   { slug: "mansion-6", title: "Mansion 6", descriptor: "Residential interior", cover: mansion6Images[5], introduction: "A White Linen residential interior.", images: mansion6Images },
   { slug: "redwood", title: "Redwood", descriptor: "Residential interior", cover: redwoodImages[0], introduction: "A White Linen residential interior.", images: redwoodImages },
   { slug: "al-barari-04", title: "Al Barari 04", descriptor: "Residential interior", cover: alBarari04Images[0], introduction: "A White Linen residential interior.", images: alBarari04Images },

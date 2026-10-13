@@ -42,4 +42,11 @@ export const projectImages: ProjectImage[] = [
     href: "/projects/tilal-al-ghaf",
     objectPosition: "center center",
   },
+  {
+    src: "/images/projects/australia/living-wide.jpg",
+    alt: "A wide open-plan living room and kitchen from the Australia residence.",
+    title: "Australia",
+    href: "/projects/australia",
+    objectPosition: "center center",
+  },
 ];

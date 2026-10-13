@@ -9,8 +9,8 @@ export function ContactPage() {
       <section className="contact-page__split" aria-labelledby="contact-title">
         <div className="contact-page__image">
           <Image
-            src="/images/projects/dh-68/6.jpg"
-            alt="A light-filled White Linen living room with natural stone shelving and sculptural furniture."
+            src="/images/contact pg/WhatsApp Image 2026-10-06 at 13.21.45.jpeg"
+            alt="A sunlit White Linen living room with a pale sofa, stone coffee tables, and sculptural black vases."
             fill
             priority
             sizes="(max-width: 700px) 100vw, 50vw"
