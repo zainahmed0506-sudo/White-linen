@@ -8,10 +8,13 @@ desktop-*.png
 hero-*.png
 mobile-*.png
 opening-*.png
+reference-portfolio.png
+.tmp-curation/
 
 # Supplied source archives and originals; the site uses browser-ready copies in public/images/projects/optimized/
 4.Selected Images/
 4.Selected Images.zip
+/public/images/projects/PROJECT PICTURES.zip
 logo/
 /public/images/brand/
 /public/images/projects/*.jpg

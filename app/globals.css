@@ -180,8 +180,8 @@ button { font: inherit; }
 .project-page__heading-title .project-page__descriptor { margin: 14px 0 0 !important; }
 .project-page__heading-title > p:last-child { max-width: 38ch; margin: 20px 0 0; font-family: Futura, "Century Gothic", Arial, sans-serif; font-size: clamp(13px, 1vw, 16px); line-height: 1.5; }
 .project-page__feature { width: min(100%, 1600px); margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px) clamp(72px, 8vw, 120px); }
-.project-page__feature-media { width: 100%; }
-.project-page__feature-media img { display: block; width: 100%; height: auto; }
+.project-page__feature-media { display: flex; width: 100%; justify-content: center; }
+.project-page__feature-media img { display: block; width: auto; max-width: 100%; height: auto; max-height: 90svh; }
 .recent-work-page__hero { position: relative; display: grid; min-height: min(78svh, 900px); overflow: hidden; background: #b8aa96; }
 .recent-work-page__hero > img { object-fit: cover; }
 .recent-work-page__hero::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(8, 8, 8, 0.5), rgba(8, 8, 8, 0.03) 65%); content: ""; pointer-events: none; }
